@@ -34,7 +34,7 @@ void transposeMatrix(int row, int col, int matrix[row][col]);
 
 // do transpose using function
 
-void transpose(int **m1, int **m2, int row, int col);
+void transpose(int **m1, int row, int col);
 
 int main(int argc, char** argv) {
     
@@ -58,16 +58,18 @@ int main(int argc, char** argv) {
         printf("\n");
     }
     
-    transpose(sampleMatrix, transposedMatrix, 3, 3);
+    transpose(sampleMatrix, 3, 3);
 
     printf("\n");
-        // display the matrix after transpose
+    /*    
+    //display the matrix after transpose
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%i ", transposedMatrix[i][j]);
         }
         printf("\n");
     }
+    */
     
     
     
@@ -84,13 +86,20 @@ int main(int argc, char** argv) {
 }
 
 // function to transpose the matrix
-// I should try to return transposed matrix
-void transpose(int **m1, int **m2, int row, int col) {
+// I should try to return the transposed matrix
+// attempted to display the transposed matrix within the transpose func
+void transpose(int **m1, int row, int col) {
+    int m2[row][col];
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             m2[j][i] = m1[i][j];
         }
-    }    
+    }
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++)
+            printf("%i ", m2[i][j]);
+        printf("\n");
+    }
 }
 
 
