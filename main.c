@@ -1,44 +1,46 @@
-/* The purpose of this program is to remove some elements from an array
- * I am trying to accomplish that 
+/*
+ * Chapter 10, Exercise 6 segmentation fault
  */
 
 #include <stdio.h>
 #include <string.h>
 
-int main(void) {
-    char str[81];
-    int start_pos, chars_to_remove, end_point, end_of_string, i, j;
-    char removal_result[81];
+void removeString(char string[], int start_pos, int n) {
+    int i, end_pos, end_of_string;
+    char rm_result[81];
     
-    printf("Enter string: ");
-    gets(str);
-    //scanf("%s", str);
-    
-    printf("\nFrom which character to start removal?\n");
-    scanf("%i", &start_pos);
-    
-    printf("\nHow many chars would you like to remove?\n");
-    scanf("%i", &chars_to_remove);
-    
-    // Copy entered string elements until start position is reached
     i = 0;
     while (i < start_pos) {
-        removal_result[i] = str[i];
+        rm_result[i] = string[i];
         i++;
     }
     
-    end_point = i + chars_to_remove;
-    end_of_string = strlen(str);
+    end_pos = i + n;
+    end_of_string = strlen(string);
     
-    while (end_point <= end_of_string) {
-        removal_result[i] = str[end_point];
-        end_point++;
+    while (end_pos <= end_of_string) {
+        rm_result[i] = string[n];
+        n++;
         i++;
     }
     
-    printf("Here's what you've done: %s", removal_result);
+    int size_string = strlen(string);
+    int size_rm_result = strlen(rm_result);
+    
+    i = 0;
+    while (i < size_string) {
+        string[i] = rm_result[i];
+        i++;
+    }   
+    
+}
+
+int main(void) {
+    char test[] = "the wrong son";
+    
+    removeString(test, 4, 6);
+    
+    printf("test = %s", test);
     
     return 0;
 }
-/*     printf("\nend_point: %i\n", end_point);
-    printf("\nend of string: %i\n", end_of_string); */
