@@ -1,46 +1,42 @@
 /*
- * Chapter 10, Exercise 6 segmentation fault
+ *  Chapter 10, Exercise 7, alpha ver. (without functions)
  */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-void removeString(char string[], int start_pos, int n) {
-    int i, end_pos, end_of_string;
-    char rm_result[81];
+int main() {
+    char source[] = "the wrong son";
+    int sourceSize = strlen(source);
+    char insert[] = "per";
+    int insertSize = strlen(insert);
+    int pos, n = sourceSize + insertSize;
+    char result[n];
     
-    i = 0;
-    while (i < start_pos) {
-        rm_result[i] = string[i];
-        i++;
-    }
+    printf("\nInitial source size: %i", sourceSize);
     
-    end_pos = i + n;
-    end_of_string = strlen(string);
+    pos = 10;
+    source[pos + 3] = source[pos];
+    printf("%c", source[pos + 3]);
+    pos++;
+    source[pos + 3] = source[pos];
+    printf("%c", source[pos + 3]);
+    pos++;
+    source[pos + 3] = source[pos];
+    printf("%c", source[pos + 3]);
     
-    while (end_pos <= end_of_string) {
-        rm_result[i] = string[n];
-        n++;
-        i++;
-    }
+    pos = 10;
+    source[pos] = insert[0];
+    pos++;
+    source[pos] = insert[1];
+    pos++;
+    source[pos] = insert[2];
     
-    int size_string = strlen(string);
-    int size_rm_result = strlen(rm_result);
-    
-    i = 0;
-    while (i < size_string) {
-        string[i] = rm_result[i];
-        i++;
-    }   
-    
-}
-
-int main(void) {
-    char test[] = "the wrong son";
-    
-    removeString(test, 4, 6);
-    
-    printf("test = %s", test);
+    printf("\nsource: %s", source);
     
     return 0;
 }
+    
+    
+    
