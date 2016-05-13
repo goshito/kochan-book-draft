@@ -1,24 +1,27 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <string.h>
-
-int main(){
-    int i,j;
-    char str[10][50],temp[50];
-    printf("Enter 10 words:\n");
-    for(i=0;i<10;++i)
-        gets(str[i]);
-    for(i=0;i<9;++i)
-       for(j=i+1;j<10 ;++j){
-          if(strcmp(str[i],str[j])>0)
-          {
-            strcpy(temp,str[i]);
-            strcpy(str[i],str[j]);
-            strcpy(str[j],temp);
-          }
-    }
-    printf("In lexicographical order: \n");
-    for(i=0;i<10;++i){
-       puts(str[i]);
-    }
-return 0;
+#include <stdlib.h>
+ 
+float strToFloar(char input[]) {
+    return (float)(atof(input));
 }
+/*
+int digitsAfterDecimalPoint(double x) {
+    int i;
+    for (i = 0; x != rint(x); x += x, i++);
+    return i;
+}*/
+
+int main () {
+    printf("%f\n", strToFloar("867.6921"));
+    printf("%f\n", strToFloar("867.6921"));
+    //printf("\n%f", digitsAfterDecimalPoint("867.6921") % 10);
+ 
+   return 0;
+}
+
+/* 
+ * Ideas:
+ *
+ * 1. Round the float result  
+ */
