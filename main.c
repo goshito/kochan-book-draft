@@ -19,7 +19,7 @@
 #include <time.h>
 
 /*
- * !!! the smaller for loop was removed
+ * !!! Peter's version of the program
  * 
  * Chapter 10, Exercise 12 Attempting to DRY 14052016 1857, 15052016 1504,1712
  * 
